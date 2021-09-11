@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const UserModel = require("./models/CrudApp");
 
-const PORT = process.env.PORT;
+const port = 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -80,6 +80,4 @@ app.delete("/:id", async (req, res) => {
     res.json(err);
   }
 });
-app.listen(PORT, () => {
-  console.log("server is running");
-});
+app.listen(process.env.PORT || port);
